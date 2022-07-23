@@ -1,0 +1,9 @@
+<h3>New book</h3>
+<%= form_with model: book, url: books_path, method: :post do |f| %>
+  <p>title</p>
+  <%= f.text_field :title %>
+  <p>Opinion</p>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Create Book" %>
+<% end %>
