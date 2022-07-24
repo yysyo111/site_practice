@@ -1,2 +1,20 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<p id="notice"></p>
+<%= render "layouts/error", obj: @user %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h3>User info</h3>
+      <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+        <p>Name</p>
+        <%= f.text_field :name, class: "form-control book_title" %>
+        <p>Image</p>
+        <%= f.file_field :profile_image, accept: "image/*", class: "form-control-file user_image" %>
+        <p>Introduction</p>
+        <%= f.text_area :introduction, class: "form-control book_body" %>
+        <p>
+        <%= f.submit "Update Book", class: "btn btn-secondary my-2" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

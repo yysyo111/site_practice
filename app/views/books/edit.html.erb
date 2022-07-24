@@ -1,11 +1,21 @@
-<h3>Editing Book</h3>
-<%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
-  <p>title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-
-  <%= f.submit "update" %>
-  <%= link_to "戻る", books_path %>
-  <%= link_to "show", book_path(@book.id) %>
-<% end %>
+<p id="notice"></p>
+<%= render "layouts/error", obj: @book %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h3>Editing Book</h3>
+      <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title, class: "form-control book_title" %>
+        <p>Opinion</p>
+        <%= f.text_area :body, class: "form-control book_body" %>
+        <p>
+        <%= f.submit "Update Book", class: "btn btn-success my-2" %>
+        </p>
+      <% end %>
+      <%= link_to "戻る", books_path %>
+      |
+      <%= link_to "show", book_path(@book.id) %>
+    </div>
+  </div>
+</div>
